@@ -94,14 +94,14 @@ def main():
         collidekiller = meteorkillerposition.collidepoint(player_pos)
         colorkiller = (255, 0, 0) if collidekiller else (255,215,0)
         if collidekiller:
-            pygame.mixer.Channel(2).play(pygame.mixer.Sound("./MeteorCrash/assets/music/meteor.mp3"))
+            pygame.mixer.Channel(2).play(pygame.mixer.Sound("assets\music\meteor.mp3"))
             meteors, meteorkillerposition = m.spawnmeteorkiller(meteors)
         pygame.draw.rect(screen, colorkiller, meteorkillerposition)
 
         collidepowerup = powerup.collidepoint(player_pos)
         colorpowerup = (255, 0, 0) if collidekiller else (0,255,0)
         if collidepowerup:
-            pygame.mixer.Channel(3).play(pygame.mixer.Sound("./MeteorCrash/assets/music/powerup.mp3"))
+            pygame.mixer.Channel(3).play(pygame.mixer.Sound("assets\music\powerup.mp3"))
             powerup, speedup, speedhorizontal = f.spawnpowerup(speedup, speedhorizontal)
         pygame.draw.rect(screen, colorpowerup,  powerup)
 
@@ -113,13 +113,13 @@ def main():
             endtime = pygame.time.get_ticks()
         if player_pos.y > 800:
             if firsttime2 == True:
-                pygame.mixer.Channel(0).play(pygame.mixer.Sound("./MeteorCrash/assets/music/Emergency.mp3"))
+                pygame.mixer.Channel(0).play(pygame.mixer.Sound("assets\music\Emergency.mp3"))
                 firsttime2 = False
         else:
             firsttime2 = True
             pygame.mixer.Channel(0).stop()
             if firsttime == True:
-                pygame.mixer.Channel(1).play(pygame.mixer.Sound("./MeteorCrash/assets/music/Annihilate.mp3"))
+                pygame.mixer.Channel(1).play(pygame.mixer.Sound("assets\music\Annihilate.mp3"))
                 firsttime = False
             else:
                 pygame.mixer.Channel(1).unpause()
